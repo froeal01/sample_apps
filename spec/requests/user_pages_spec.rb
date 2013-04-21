@@ -41,8 +41,9 @@ describe "signup" do
         fill_in "Confirmation", with: "foobar"
       end
 
-      it "should create a user" do
-        expect { click_button submit }.to change(User, :count).by(1)
+     describe "followed by signout" do
+        before { click_link "Sign out" }
+        it { should have_link('Sign in') }
       end
     end
   end
